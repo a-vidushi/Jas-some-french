@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jas — Video French Lessons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFFBF2;
+    --ink:#232244;
+    --butter:#FFC845;
+    --sky:#4FB3D9;
+    --berry:#E85D75;
+    --mint:#4FB286;
+    --paper:#FFF6E0;
+    --line: rgba(35,34,68,0.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Nunito Sans', sans-serif;
+    line-height:1.5;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+
+  .accent-serif{
+    font-family:'Instrument Serif', serif;
+    font-style:italic;
+    font-weight:400;
+  }
+
+  a{color:inherit;}
+
+  .wrap{
+    max-width:1000px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- nav ---------- */
+  nav{
+    padding:18px 0;
+    position:sticky;
+    top:0;
+    background:rgba(255,251,242,0.9);
+    backdrop-filter: blur(6px);
+    z-index:20;
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  .logo .stamp-dot{
+    width:28px;height:28px;border-radius:50%;
+    background: conic-gradient(var(--berry) 0 25%, var(--butter) 25% 50%, var(--sky) 50% 75%, var(--mint) 75% 100%);
+    flex-shrink:0;
+    align-self:center;
+    margin-right:2px;
+  }
+  .logo .jas{
+    font-size:1.4rem;
+    font-weight:700;
+  }
+  .logo .tagline{
+    font-size:1.05rem;
+    color:var(--berry);
+  }
+  nav .cta{
+    background:var(--ink);
+    color:var(--cream);
+    padding:10px 20px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:0.9rem;
+    text-decoration:none;
+    transition: transform 0.15s ease;
+    display:inline-block;
+  }
+  nav .cta:hover{ transform: translateY(-2px); }
+
+  /* ---------- hero ---------- */
+  header.hero{
+    padding:68px 0 46px;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+  }
+  .eyebrow{
+    display:inline-block;
+    background:var(--paper);
+    border:1px dashed var(--berry);
+    color:var(--berry);
+    padding:6px 14px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:3rem;
+    line-height:1.05;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--berry);
+  }
+  .hero p.lede{
+    margin-top:18px;
+    font-size:1.1rem;
+    max-width:48ch;
+    color:rgba(35,34,68,0.8);
+  }
+  .hero p.lede strong{ color:var(--ink); }
+  .hero-ctas{
+    margin-top:30px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--berry);
+    color:white;
+    border:none;
+    padding:14px 26px;
+    border-radius:14px;
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    font-size:1rem;
+    cursor:pointer;
+    box-shadow: 0 6px 0 #b6465c;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .btn-primary:hover{ transform: translateY(2px); box-shadow: 0 4px 0 #b6465c; }
+  .btn-ghost{
+    background:transparent;
+    border:2px solid var(--ink);
+    padding:12px 24px;
+    border-radius:14px;
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    font-size:1rem;
+    cursor:pointer;
+  }
+
+  .passport{
+    background:var(--ink);
+    border-radius:20px;
+    padding:28px;
+    color:var(--cream);
+    position:relative;
+    transform:rotate(3deg);
+    box-shadow: 0 20px 40px rgba(35,34,68,0.25);
+  }
+  .passport-inner{
+    border:1.5px dashed rgba(255,251,242,0.35);
+    border-radius:12px;
+    padding:26px 20px;
+    text-align:center;
+  }
+  .passport .crest{
+    width:56px;height:56px;
+    margin:0 auto 14px;
+    border-radius:50%;
+    background: conic-gradient(var(--butter) 0 25%, var(--sky) 25% 50%, var(--berry) 50% 75%, var(--mint) 75% 100%);
+  }
+  .passport-title{
+    font-family:'Fredoka', sans-serif;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-size:0.8rem;
+    color:var(--butter);
+  }
+  .passport-name{
+    font-family:'Instrument Serif', serif;
+    font-style:italic;
+    font-size:1.7rem;
+    margin-top:8px;
+  }
+  .passport-sub{
+    margin-top:6px;
+    font-size:0.85rem;
+    color:rgba(255,251,242,0.65);
+  }
+
+  /* ---------- instructor ---------- */
+  .instructor{ padding:20px 0 66px; }
+  .instructor .card{
+    background:var(--paper);
+    border-radius:24px;
+    padding:36px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:28px;
+    align-items:center;
+  }
+  .avatar{
+    width:96px;height:96px;
+    border-radius:50%;
+    background:var(--sky);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fredoka', sans-serif;
+    font-weight:700;
+    font-size:1.6rem;
+    color:white;
+    flex-shrink:0;
+    border:4px solid white;
+  }
+  .instructor h3{ font-size:1.5rem; }
+  .instructor .role{
+    color:var(--berry);
+    font-weight:700;
+    font-size:0.85rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    margin-bottom:6px;
+    display:block;
+  }
+  .instructor p{
+    margin-top:10px;
+    color:rgba(35,34,68,0.78);
+    max-width:60ch;
+  }
+
+  /* ---------- levels path ---------- */
+  .levels{ padding:20px 0 30px; position:relative; }
+  .section-head{ text-align:center; margin-bottom:50px; }
+  .section-head h2{ font-size:2.2rem; }
+  .section-head p{ margin-top:10px; color:rgba(35,34,68,0.65); }
+
+  .path{ position:relative; display:flex; flex-direction:column; gap:0; }
+  .path::before{
+    content:"";
+    position:absolute;
+    left:39px;
+    top:10px;
+    bottom:10px;
+    width:3px;
+    background-image: linear-gradient(var(--ink) 60%, transparent 40%);
+    background-size: 3px 14px;
+    opacity:0.18;
+  }
+
+  .level{
+    display:grid;
+    grid-template-columns:80px 1fr;
+    gap:22px;
+    padding:16px 0;
+    position:relative;
+  }
+
+  .stamp{
+    width:80px;height:80px;
+    border-radius:50%;
+    border:3px dashed var(--stamp-color, var(--sky));
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background:var(--cream);
+    color:var(--stamp-color, var(--sky));
+    font-family:'Fredoka', sans-serif;
+    font-weight:700;
+    transform:rotate(-6deg);
+    position:relative;
+    z-index:1;
+    transition: transform 0.2s ease;
+  }
+  .level:hover .stamp{ transform:rotate(0deg) scale(1.05); }
+  .stamp .num{ font-size:1.5rem; line-height:1; }
+  .stamp .label{ font-size:0.5rem; letter-spacing:0.05em; text-transform:uppercase; margin-top:2px; text-align:center; }
+
+  .level-card{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px 24px;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .level-card:hover{
+    box-shadow: 0 10px 24px rgba(35,34,68,0.08);
+    transform: translateY(-2px);
+  }
+
+  .level-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    cursor:pointer;
+  }
+  .level-card h3{ font-size:1.2rem; }
+  .level-french{
+    font-family:'Instrument Serif', serif;
+    font-style:italic;
+    color:var(--berry);
+    font-size:1rem;
+  }
+  .level-meta{
+    margin-top:4px;
+    font-size:0.82rem;
+    color:rgba(35,34,68,0.55);
+  }
+
+  .badge{
+    font-size:0.72rem;
+    font-weight:700;
+    padding:4px 10px;
+    border-radius:999px;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .badge.start{ background:var(--mint); color:white; }
+  .badge.popular{ background:var(--butter); color:var(--ink); }
+  .badge.advanced{ background:var(--berry); color:white; }
+  .badge.bonus{ background:var(--sky); color:white; }
+
+  .level-detail{
+    max-height:0;
+    overflow:hidden;
+    transition: max-height 0.25s ease;
+    font-size:0.9rem;
+    color:rgba(35,34,68,0.75);
+  }
+  .level-card.open .level-detail{ max-height:120px; margin-top:12px; }
+
+  .enroll-btn{
+    margin-top:16px;
+    background:var(--ink);
+    color:var(--cream);
+    border:none;
+    padding:11px 20px;
+    border-radius:12px;
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    font-size:0.9rem;
+    cursor:pointer;
+    transition: transform 0.12s ease;
+  }
+  .enroll-btn:hover{ transform:translateY(-2px); }
+
+  /* ---------- enroll form ---------- */
+  .enroll-section{ padding:50px 0 90px; }
+  .enroll-box{
+    background:var(--ink);
+    border-radius:24px;
+    padding:44px;
+    color:var(--cream);
+    text-align:center;
+  }
+  .enroll-box h2{ font-size:2rem; }
+  .enroll-box p{ margin-top:10px; color:rgba(255,251,242,0.7); max-width:50ch; margin-left:auto; margin-right:auto; }
+  form.enroll-form{
+    margin-top:28px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  form.enroll-form input, form.enroll-form select{
+    font-family:'Nunito Sans', sans-serif;
+    padding:12px 16px;
+    border-radius:12px;
+    border:none;
+    font-size:0.95rem;
+    min-width:180px;
+  }
+  form.enroll-form button{
+    background:var(--berry);
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:12px;
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .enroll-confirm{
+    margin-top:16px;
+    font-size:0.9rem;
+    color:var(--mint);
+    font-weight:700;
+    display:none;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--ink);
+    color:rgba(255,251,242,0.6);
+    padding:30px 0;
+    text-align:center;
+    font-size:0.85rem;
+  }
+  footer strong{ color:var(--cream); }
+
+  @media (max-width: 760px){
+    .hero .wrap{ grid-template-columns:1fr; }
+    .hero h1{ font-size:2.2rem; }
+    .instructor .card{ grid-template-columns:1fr; text-align:center; }
+    .avatar{ margin:0 auto; }
+    .passport{ transform:none; }
+    form.enroll-form{ flex-direction:column; align-items:stretch; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; scroll-behavior:auto !important; }
+  }
+
+  :focus-visible{ outline:3px solid var(--sky); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">
+      <span class="stamp-dot"></span>
+      <span class="jas display">Jas</span>
+      <span class="tagline accent-serif">some French</span>
+    </div>
+    <a href="#enroll" class="cta">Enroll now</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Video lessons · 4 levels</span>
+      <h1>Jas <em>some</em> French.</h1>
+      <p class="lede">Say it fast — <strong>"Jas some French"</strong> sounds a lot like "just some French." It's also short for Jaspreet, the instructor behind every video. Pick a level, enroll, and start watching today.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="document.getElementById('levels').scrollIntoView()">See the levels</button>
+        <button class="btn-ghost" onclick="document.getElementById('instructor').scrollIntoView()">Meet Jaspreet</button>
+      </div>
+    </div>
+    <div class="passport">
+      <div class="passport-inner">
+        <div class="crest"></div>
+        <div class="passport-title">Niveaux</div>
+        <div class="passport-name">Choose Your Level</div>
+        <div class="passport-sub">4 video courses · enroll anytime</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="instructor" id="instructor">
+  <div class="wrap">
+    <div class="card">
+      <div class="avatar">JK</div>
+      <div>
+        <span class="role">Your instructor</span>
+        <h3>Dr. Jaspreet Khurana</h3>
+        <p>Six years of helping students learn french online, now through live classes and bite-sized video lessons designed to take you from where you are to where you need to be—especially if your goal is moving to canada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="levels" id="levels">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Choose Your Level</h2>
+      <p>Four video courses, one route — enroll wherever you're starting from.</p>
+    </div>
+    <div class="path" id="path"></div>
+  </div>
+</section>
+
+<section class="enroll-section" id="enroll">
+  <div class="wrap">
+    <div class="enroll-box">
+      <h2>Ready to enroll?</h2>
+      <p>Tell us your level and we'll send video access straight to your inbox.</p>
+      <form class="enroll-form" id="enrollForm">
+        <input type="text" placeholder="Your name" required id="enrollName">
+        <input type="email" placeholder="Email address" required id="enrollEmail">
+        <select id="enrollLevel">
+          <option value="Debutant">Débutant (Beginner)</option>
+          <option value="Intermediaire">Intermédiaire (Intermediate)</option>
+          <option value="Avance">Avancé (Advanced)</option>
+          <option value="Immersion">Immersion</option>
+        </select>
+        <button type="submit">Enroll me</button>
+      </form>
+      <div class="enroll-confirm" id="enrollConfirm">You're on the list — check your inbox soon. À bientôt!</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <strong>Jas</strong> some French — video lessons with Dr. Jaspreet Khurana
+  </div>
+</footer>
+
+<script>
+  const levels = [
+    {
+      num: 1, name: "Débutant", title: "Beginner",
+      desc: "Foundations: greetings, numbers, basic grammar.",
+      detail: "12 videos · ~15 min each · no prior French needed.",
+      badge: "start", badgeText: "Start here", color: "var(--mint)"
+    },
+    {
+      num: 2, name: "Intermédiaire", title: "Intermediate",
+      desc: "Real conversations, verb tenses, everyday fluency.",
+      detail: "16 videos · builds directly on Débutant.",
+      badge: "popular", badgeText: "Most popular", color: "var(--butter)"
+    },
+    {
+      num: 3, name: "Avancé", title: "Advanced",
+      desc: "Nuance, culture, and speaking with confidence.",
+      detail: "14 videos · for comfortable intermediate speakers.",
+      badge: "advanced", badgeText: "For fluent speakers", color: "var(--berry)"
+    },
+    {
+      num: 4, name: "Immersion", title: "Conversation Immersion",
+      desc: "Live-style dialogue practice with native rhythm.",
+      detail: "10 videos · optional add-on to any level.",
+      badge: "bonus", badgeText: "Bonus track", color: "var(--sky)"
+    }
+  ];
+
+  const pathEl = document.getElementById('path');
+
+  levels.forEach((l) => {
+    const levelEl = document.createElement('div');
+    levelEl.className = 'level';
+
+    levelEl.innerHTML = [
+      '<div class="stamp" style="--stamp-color:' + l.color + '">',
+        '<div class="num">' + l.num + '</div>',
+        '<div class="label">Level</div>',
+      '</div>',
+      '<div class="level-card" data-level="' + l.name + '">',
+        '<div class="level-top">',
+          '<div>',
+            '<h3>' + l.title + '</h3>',
+            '<div class="level-french">' + l.name + '</div>',
+            '<p class="level-meta">' + l.desc + '</p>',
+          '</div>',
+          '<span class="badge ' + l.badge + '">' + l.badgeText + '</span>',
+        '</div>',
+        '<div class="level-detail">' + l.detail + '</div>',
+        '<button class="enroll-btn">Enroll in ' + l.name + ' &rarr;</button>',
+      '</div>'
+    ].join('');
+
+    const card = levelEl.querySelector('.level-card');
+    const top = levelEl.querySelector('.level-top');
+    const btn = levelEl.querySelector('.enroll-btn');
+
+    top.addEventListener('click', () => card.classList.toggle('open'));
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('enroll').scrollIntoView({ behavior: 'smooth' });
+      const select = document.getElementById('enrollLevel');
+      select.value = l.name.replace('é', 'e').replace('É', 'E');
+    });
+
+    pathEl.appendChild(levelEl);
+  });
+
+  document.getElementById('enrollForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('enrollConfirm').style.display = 'block';
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
